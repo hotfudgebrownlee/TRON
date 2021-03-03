@@ -9,29 +9,29 @@ This program runs using Python 3.8.0 or higher and arcade 2.1.0.
 
 WISH LIST:
   Main Scene:
-    -Play Button
+    - Play Button
     -Help Button
   Game Scene:
-    -User-controlled P1
-    -AI-controlled P2
-    -Multicolored cycles
-    -Life display (3 each)
-    -Various levels of AI intelligence
-    -Collision detection
-    -Sound effects
-    -Music
-    -Players can go through walls
+    - User-controlled P1
+    - AI-controlled P2
+    - Multicolored cycles
+    - Life display (3 each)
+    - Various levels of AI intelligence
+    - Collision detection
+    - Sound effects
+    - Music
+    - Players can go through walls
   Help Scene:
-    -Instructions
-    -Back button
+    - Instructions
+    - Back button
   Life Lost Scene:
-    -Player x lost a life
-    -Next round button
-    -Optional Quit button
+    - Player x lost a life
+    - Next round button
+    - Optional Quit button
   End Scene:
-    -Player x won
-    -Play again button
-    -Quit button
+    - Player x won
+    - Play again button
+    - Quit button
 
 
 
@@ -49,29 +49,29 @@ FEATURE LIST (priorities):
   Priority 1 is top priority, 2 is mid-level, 3 is late priority
 
   (2)Main Scene:
-    (2)-Play Button
-    (3)-Help Button
+    - (2)-Play Button
+    - (3)-Help Button
   (1)Game Scene:
-    (1)-User-controlled P1
-    (1)-AI-controlled P2
-    (3)-Multicolored cycles
-    (2)-Life display (3 each)
-    (3)-Various levels of AI intelligence
-    (1)-Collision detection
-    (3)-Sound effects
-    (3)-Music
-    (2)-Players can go through walls
+    - (1)-User-controlled P1
+    - (1)-AI-controlled P2
+    - (3)-Multicolored cycles
+    - (2)-Life display - (3 each)
+    - (3)-Various levels of AI intelligence
+    - (1)-Collision detection
+    - (3)-Sound effects
+    - (3)-Music
+    - (2)-Players can go through walls
   (3)Help Scene:
-    (3)-Instructions
-    (3)-Back button
+    - (3)-Instructions
+    - (3)-Back button
   (2)Life Lost Scene:
-    (2)-Player x lost a life
-    (2)-Next round button
-    (3)-Optional Quit button
+    - (2)-Player x lost a life
+    - (2)-Next round button
+    - (3)-Optional Quit button
   (2)End Scene:
-    (2)-Player x won
-    (3)-Play again button
-    (3)-Quit button
+    - (2)-Player x won
+    - (3)-Play again button
+    - (3)-Quit button
 
 
 This project will be completed over the course of four weeks.
