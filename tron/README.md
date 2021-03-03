@@ -10,7 +10,7 @@ This program runs using Python 3.8.0 or higher and arcade 2.1.0.
 WISH LIST:
   - Main Scene:
     - Play Button
-    -Help Button
+    - Help Button
   - Game Scene:
     - User-controlled P1
     - AI-controlled P2
