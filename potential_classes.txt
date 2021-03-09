@@ -13,6 +13,7 @@ control_ai_action
 control_actors_action
 handle_collisions_action
 move_actors_action
+draw_actors_action
 pont
 constants
 action
