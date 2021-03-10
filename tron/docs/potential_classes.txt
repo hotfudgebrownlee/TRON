@@ -6,8 +6,6 @@ obstacle
 ACTIONS
 arcade_input_service
 arcade_output_service
-ascii_input_service
-ascii_output_service
 control_player_action
 control_ai_action
 control_actors_action

@@ -1,0 +1,162 @@
+NEEDED ASSETS
+- sounds
+    - music
+    - derezz sounds
+    - sound when cycle turns?
+- images
+    - cycle
+    - light trail (gradient at end)
+    - obstacle
+
+CONSTANTS
+  - Path constants (import os and pathlib[Path])
+    - DIR = Path(__file__).resolve().parent
+    - DIRROOT = DIR.resolve().parent
+    - X_IMAGE = DIRROOT.joinpath("images/x.png")
+    - X_SOUND = DIRROOT.joinpath("sounds/x.wav")
+  - Screen
+    - MAX_X, MAX_Y
+    - NUM_OBST (number of obstacles)
+  - Objects
+    - Cycles
+      - CYCLE_Y?
+      - CYCLE_SPEED
+      - CYCLE_MOVE_SCALE
+    - Obstacles
+      -OBST_WIDTH
+      -OBST_HEIGHT
+      -OBST_SPACE
+
+CLASSES
+  GAMEPLAY
+    MAIN
+      cast = {}
+      cycle_x = 0
+      for i in range(2)
+        cycle_x += ROUND(MAX_X/3)
+        cast["cycle"] = Cycle(cycle_x,CYCLE_Y)
+      cast["obstacles"] = obstacles
+    DIRECTOR
+      
+  ACTORS
+    cycle
+      init (center_x, center_y)
+      get_front (find front of cycle for collision)
+    trail
+      init (center_x, center_y)
+      get_trail (gets trail to follow behind cycle)
+    obstacle
+      init (center_x, center_y)
+
+  POINT
+    init
+      set x and y
+    add
+      use get_x and get_y, add to self.x and self.y
+    equals
+      return bool if x = get_x and y = get_y
+    get_x, get_y
+    set_x, set_y
+    reverse
+      x = self.x * -1
+      y = self.y * -1
+    scale (scale_by)
+      x = self.x*scale_by
+      y = self.y*scale_by
+    
+  ACTIONS
+    Action(parent class)
+      execute(cast)
+      raise error if not
+    INPUTS (import sys, point)
+      ARCADE(import arcade)
+        init
+          setup blank keys list
+        set_key
+          add keystroke to keys
+        remove_key
+          remove key from keys
+        get_direction
+          if arcade.key.DIRECTION
+            change x or y accordingly
+          set velocity = Point(x,y)
+          return velocity
+    OUTPUTS (sys, constants)
+      ARCADE (import arcade)
+        init
+          pass
+        clear_screen
+          arcade.start_render()
+        draw_actor (actor)
+          actor.draw()
+        draw_actors (actors)
+          for actor in actors, draw_actor(actor)
+        flush_buffer
+          pass
+*** STILL NEED TO FIGURE OUT P2 AI MOVEMENT. FOR ALPHA, JUST DO CYCLE1 ***
+    CONTROL ACTORS (constants, action)
+      init (input)
+        input = input
+      execute (cast)
+        direction = input.get_direction().scale(constants.CYCLE_MOVE_SCALE)
+        for cycle in cast["cycles"]:
+          cycle.change_x = direction.get_x()
+          cycle.change_y = direction.get_y()
+      ** make sure cycle can go off screen and comes out other side
+**************************************************************************
+    DRAW ACTORS (constants, action)
+      init
+        output = output
+      execute (cast)
+        output.clear_screen()
+        obstacles = cast["obstacles"]
+        for obstacle in obstacles:
+            output.draw_actor(obstacle)
+        for cycle in cast["cycles"]:
+            output.draw_actor(cycle)
+        for trail in cast["trails"]:
+            for trail_bit in trail:
+                output.draw_actor(trail_bit)
+        output.flush_buffer()
+*** This one will be tough as well just seeing out how 2 cycles work***
+    HANDLE COLLISIONS 
+      init
+        collision = False
+      execute (cast)
+      for cycle in cast["cycles"]:
+        **find a way to deal with both cycles at once for cycle collision
+        obstacles = cast["obstacles"]
+        trails = cast["trails"]
+        for obstacle in obstacles:
+            if cycle.collides_with_sprite(obstacle)
+                collision = True
+        for trail_bit in trail:
+            if cycle.collides_with_sprite(trail_bit)
+                collision = True
+        if cycle.collides_with_sprite(other_cycle)
+            collisions = True
+        if collision = True:
+          some sort of game exit to represent loss (sys exit?)
+***********************************************************************
+    MOVE ACTORS
+      execute (cast)
+        for group in cast.values()
+            for actor in group
+                if actor.change_x != 0 or actor.change_y != 0
+                    move_actor(actor)
+      move_actor(actor)
+        actor.center_x = actor.center_x + actor.change_x
+        actor.center_y = actor.center_y + actor.change_y  
+
+        
+
+
+
+
+
+
+        
+
+    
+
+  
