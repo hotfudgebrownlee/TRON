@@ -29,14 +29,66 @@ CONSTANTS
 
 CLASSES
   GAMEPLAY
-    MAIN
+  ************needs logic for obstacles and trail**************
+    MAIN (import pretty much everything)
       cast = {}
-      cycle_x = 0
-      for i in range(2)
-        cycle_x += ROUND(MAX_X/3)
-        cast["cycle"] = Cycle(cycle_x,CYCLE_Y)
-      cast["obstacles"] = obstacles
-    DIRECTOR
+        cycle_x = 0
+        for i in range(2)
+          cycle_x += ROUND(MAX_X/3)
+          cycle = Cycle(cycle_x,CYCLE_Y)
+          cast["cycles"].append(cycle)
+          ** logic to create trail
+          cast["trails"].append(trail)
+        cast["obstacles"] = []
+        for i in range(NUM_OBST)
+          ** if logic to determine obst overlap using WIDTH,HEIGHT,SPACE
+          obst_x = random.randint(0,MAX_X)
+          obst_y = random.randint(0,MAX_Y)
+          obstacle = Obstacle(obst_x, obst_y)
+          cast["obstacles"].append(obstacle)
+      script = {}
+        input = ArcadeInput
+        output = ArcadeOutput
+
+        control_actors = ControlActors(input)
+        move_actors = MoveActors()
+        handle_collisions = HandleCollisions()
+        draw_actors = DrawActors(output)
+
+        script["input"] = [control_actors]
+        script["update"] = [move_actors, handle_collisions]
+        script["output"] = [draw_actors]
+
+      director = Director(cast, script, input)
+      director.setup()
+      arcade.run()
+
+      if __name__ == "__main__"
+        main()
+  *********************************************************************
+    DIRECTOR (import arcade, constants)
+      init(cast, script, input)
+        super().init(constants.MAX_X, constants.MAX_Y, "Tron")
+        cast = cast
+        script = script
+        input = input
+      setup
+        arcade.set_background_color(arcade.color.BLACK)
+      _cue_action(tag)
+        for action in script[tag]
+          action.execute(cast)
+      on_key_press(symbol)
+        input.set_key(symbol)
+        cue_action("input")
+      on_key_release(symbol)
+        input.remove_key(symbol)
+        cue_action("input")
+      on_update(delta_time)
+        cue_action("update")
+      on_draw
+        cue_action("output")
+      
+  
       
   ACTORS
     cycle
