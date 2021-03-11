@@ -33,8 +33,8 @@ CLASSES
     MAIN (import pretty much everything)
       cast = {}
         cycle_x = 0
-        for i in range(2)
-          cycle_x += ROUND(MAX_X/3)
+        for i in range(NUM_CYCLES)
+          cycle_x += ROUND(MAX_X/(NUM_CYCLES + 1))
           cycle = Cycle(cycle_x,CYCLE_Y)
           cast["cycles"].append(cycle)
           ** logic to create trail
@@ -115,6 +115,8 @@ CLASSES
     scale (scale_by)
       x = self.x*scale_by
       y = self.y*scale_by
+    is_zero
+      return bool if x = 0 and y = 0
     
   ACTIONS
     Action(parent class)

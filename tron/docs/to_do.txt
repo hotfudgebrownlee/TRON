@@ -1,0 +1,24 @@
+TO DO:
+
+2021.03.10
+main class:
+    trail class creation
+    obstacle overlap logic
+constants:
+    images
+        basic (urgent)
+        actual (less urgent)
+input_service:
+    if opposing directions, avoid collision logic
+control_actors:
+    off-screen ability
+control_ai:
+    the whole class
+move_actors:
+    wrapping logic, not sure if control or move
+cycle:
+    whole class
+obstacle:
+    whole class
+trail:
+    whole class
