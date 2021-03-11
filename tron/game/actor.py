@@ -4,16 +4,12 @@ import arcade
 
 class Actor(arcade.Sprite):
     """A class to represent actors."""
-    def __init__(self,x,y):
+    def __init__(self,image):
         """Class constructor.
 
         Args:
-            x(coordinate): center_x value
-            y(coordinate): center_y value"""
-        self.center_x = x
-        self.center_y = y
-        self.change_x = 0
-        self.change_y = 0
+            image(picture): picture to be passed to Sprite class."""
+        super().__init__(image)
 
     def get_velocity(self):
         x = self.change_x
