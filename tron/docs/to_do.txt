@@ -1,5 +1,20 @@
 TO DO:
 
+2021.03.12
+main class:
+    trail creation
+    obstacle overlap logic
+constants:
+    fancy images (next week)
+input_service:
+    if opposing directions, avoid collision logic
+control_ai:
+    full class
+obstacle:
+    full class
+
+***************************ARCHIVED************************
+
 2021.03.10
 main class:
     trail class creation
