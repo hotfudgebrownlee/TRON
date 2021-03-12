@@ -1,11 +1,11 @@
 TO DO:
 
-2021.03.12
+2021.03.12 (* is not urgent)
 main class:
     trail creation
     obstacle overlap logic
-constants:
-    fancy images (next week)
+*constants:
+*    fancy images (next week)
 input_service:
     if opposing directions, avoid collision logic
 control_ai:
