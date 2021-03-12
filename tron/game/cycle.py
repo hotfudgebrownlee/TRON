@@ -66,9 +66,9 @@ class Cycle(Actor):
             if n > 0:
                 leader = self._trail_bits[n-1]
                 velocity = leader.get_velocity()
-                segment.set_velocity(velocity)
+                bit.set_velocity(velocity)
             elif not bit.get_velocity().reverse().equals(direction):
-                segment.set_velocity(direction)
+                bit.set_velocity(direction)
             else:
-                segment.set_velocity(direction)
-            segment.move_next()
+                bit.set_velocity(direction)
+            bit.move_next()
