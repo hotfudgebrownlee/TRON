@@ -23,8 +23,7 @@ class ControlActorsAction(Action):
         Args:
             cast(dict): The game actors {key:tag,value:list}"""
         direction = self._input_service.get_direction().scale(constants.CYCLE_MOVE_SCALE)
-        for cycle in cast["cycles"]:
-            cycle.change_x = direction.get_x()
-            cycle.change_y = direction.get_y()
-        """Ensure off-screen ability"""
+        cycle = cast["cycles"][0]
+        cycle.change_x = direction.get_x()
+        cycle.change_y = direction.get_y()
 
