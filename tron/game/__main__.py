@@ -20,12 +20,12 @@ def main():
     cast = {}
 
     cast["cycles"] = []
-    cast["obstacles"] = []
+
     cycle_x = 0
     for _ in range(constants.NUM_CYCLES):
-        cycle_x += ROUND(constants.MAX_X/(constants.NUM_CYCLES + 1))
-        cycle = Cycle(cycle_x,constants.CYCLE_Y)
-        cast["cycles"].append(cycle)
+        cycle_x += round(constants.MAX_X/(constants.NUM_CYCLES + 1))
+        cycle = Cycle(cycle_x, constants.CYCLE_Y, constants.CYCLE_IMAGE)
+        cast["cycle"].append(cycle)
         """
         TRAIL LOGIC
 
@@ -54,7 +54,7 @@ def main():
     script["output"] = [draw_actors_action]
 
     director = Director(cast,script,input_service)
-    batter.setup()
+    director.setup()
     arcade.run()
 
 if __name__ == "__main__":

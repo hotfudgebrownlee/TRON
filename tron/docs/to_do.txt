@@ -1,5 +1,19 @@
 TO DO:
 
+2021.03.13
+main class:
+    trail creation (next week)
+    obstacle overlap logic
+constants:
+    fancy images (next week)
+handle collisions:
+    obstacle collision
+    self collision (next week w trail)
+control ai:
+    better AI (next week)
+
+***************************ARCHIVED************************
+
 2021.03.12 (* is not urgent)
 main class:
     trail creation
@@ -13,7 +27,6 @@ control_ai:
 obstacle:
     full class
 
-***************************ARCHIVED************************
 
 2021.03.10
 main class:

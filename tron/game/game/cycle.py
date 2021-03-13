@@ -13,21 +13,23 @@ class Cycle(Actor):
     Attributes:
         _trail_bits (list): The trail behind the cycle
             (a list of Actor instances)"""
-    def __init__(self,x,y):
+    def __init__(self,x,y,image):
         """The class constructor.
 
         Args:
             self(Cycle): An instance of Cycle."""
+        super().__init__(image)
         self.center_x = x
         self.center_y = y
+        """
         self._trail_bits = []
         self._prepare_trail()
 
     def _prepare_trail(self):
-        """Prepares the trail to follow behind the cycle.
+        ""Prepares the trail to follow behind the cycle.
 
         Args:
-            self(Cycle): an instance of Cycle."""
+            self(Cycle): an instance of Cycle.""
         x = self.center_x
         y = self.center_y
         velocity = Point(0,0)
@@ -42,23 +44,23 @@ class Cycle(Actor):
             self._add_trail_bit(position,velocity,constants.TRAIL_IMAGE)
 
     def _add_trail_bit(self,position,velocity,image):
-        """Adds a new bit to the end of the trail.
+        ""Adds a new bit to the end of the trail.
 
         Args:
             self(Cycle): an instance of Cycle.
             position (Point): The bit's position.
-            velocity (Point): The bit's velocity."""
+            velocity (Point): The bit's velocity.""
         bit = Actor(image)
         bit.set_position(position)
         bit.set_velocity(velocity)
         self._trail_bits.append(bit)
 
     def move_cycle(self,direction):
-        """Moves the cycle in a given direction.
+        ""Moves the cycle in a given direction.
 
         Args:
             self(Cycle): An instance of Cycle.
-            direction(Point): the direction to move."""
+            direction(Point): the direction to move.""
         count = len(self._trail_bits) - 1
 
         for n in range(count, -1, -1):
@@ -72,3 +74,5 @@ class Cycle(Actor):
             else:
                 bit.set_velocity(direction)
             bit.move_next()
+
+    """
