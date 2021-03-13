@@ -1,15 +1,15 @@
 TO DO:
 
-2021.03.13
+2021.03.13 (* is not urgent)
 main class:
-    trail creation (next week)
+*    trail creation (next week)
 constants:
-    fancy images (next week)
+*    fancy images (next week)
 handle collisions:
     obstacle collision
-    self collision (next week w trail)
+*    self collision (next week w trail)
 control ai:
-    better AI (next week)
+*    better AI (next week)
 
 ***************************ARCHIVED************************
 
