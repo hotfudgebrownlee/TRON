@@ -25,20 +25,26 @@ def main():
     for _ in range(constants.NUM_CYCLES):
         cycle_x += round(constants.MAX_X/(constants.NUM_CYCLES + 1))
         cycle = Cycle(cycle_x, constants.CYCLE_Y, constants.CYCLE_IMAGE)
-        cast["cycle"].append(cycle)
+        cast["cycles"].append(cycle)
         """
         TRAIL LOGIC
 
         """
-    for _ in range(constants.NUM_OBST):
-        """
-        CHECK FOR OBSTACLE OVERLAP
-
-        """
-        obst_x = random.randint(0,constants.MAX_X)
-        obst_y = random.randint(0,constants.MAX_Y)
-        obstacle = Obstacle(obst_x,obst_y)
-        cast["obstacles"].append(obstacle)
+    cast["obstacles"] = []
+    while len(cast["obstacles"]) <= 4:
+        x = random.randint(0 + constants.BRICK_WIDTH
+                    ,constants.MAX_X - constants.BRICK_WIDTH)
+        y = random.randint(0 + constants.BRICK_HEIGHT
+                    ,constants.MAX_Y - constants.BRICK_HEIGHT)
+        obstacle = Obstacle(x, y)
+        for paddle in cast["paddle"]:
+            if not obstacle.collides_with_sprite(paddle):
+                if cast["obstacles"]:
+                    for other in cast["obstacles"]:
+                        if not obstacle.collides_with_sprite(other):
+                            cast["obstacles"].append(obstacle)
+                else:
+                    cast["obstacles"].append(obstacle)
     
     script = {}
     input_service = InputService()

@@ -3,7 +3,6 @@ TO DO:
 2021.03.13
 main class:
     trail creation (next week)
-    obstacle overlap logic
 constants:
     fancy images (next week)
 handle collisions:
