@@ -11,7 +11,7 @@ from game.output_service import OutputService
 
 from game.cycle import Cycle
 from game.obstacle import Obstacle
-from game.trail import Trail
+# from game.trail import Trail
 
 from game.director import Director
 import arcade
@@ -32,13 +32,13 @@ def main():
         """
     cast["obstacles"] = []
     while len(cast["obstacles"]) <= 4:
-        x = random.randint(0 + constants.BRICK_WIDTH
-                    ,constants.MAX_X - constants.BRICK_WIDTH)
-        y = random.randint(0 + constants.BRICK_HEIGHT
-                    ,constants.MAX_Y - constants.BRICK_HEIGHT)
+        x = random.randint(0 + constants.OBST_WIDTH
+                    ,constants.MAX_X - constants.OBST_WIDTH)
+        y = random.randint(0 + constants.OBST_HEIGHT
+                    ,constants.MAX_Y - constants.OBST_HEIGHT)
         obstacle = Obstacle(x, y)
-        for paddle in cast["paddle"]:
-            if not obstacle.collides_with_sprite(paddle):
+        for cycle in cast["cycles"]:
+            if not obstacle.collides_with_sprite(cycle):
                 if cast["obstacles"]:
                     for other in cast["obstacles"]:
                         if not obstacle.collides_with_sprite(other):

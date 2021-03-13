@@ -17,9 +17,9 @@ class HandleCollisionsAction(Action):
             cast (dict): The game actors {key: tag, value: list}.
         """
         for cycle in cast["cycles"]:
-            self._handle_obst_collision(cycle,cast["bricks"])
+            self._handle_obst_collision(cycle,cast["obstacles"])
     
-    def _handle_obst_collision(self, cycle, bricks):
-        for brick in bricks:
-            if cycle.collides_with_sprite(brick):
+    def _handle_obst_collision(self, cycle, obstacles):
+        for obstacle in obstacles:
+            if cycle.collides_with_sprite(obstacle):
                 sys.exit()

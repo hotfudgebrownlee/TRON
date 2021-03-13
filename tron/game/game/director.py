@@ -21,11 +21,11 @@ class Director(arcade.Window):
         for action in self._script[tag]:
             action.execute(self._cast)
 
-    def on_key_press(self,symbol)
+    def on_key_press(self,symbol,modifier):
         self._input.set_key(symbol)
         self._cue_action("input")
 
-    def on_key_release(self,symbol)
+    def on_key_release(self,symbol,modifier):
         self._input.remove_key(symbol)
         self._cue_action("input")
 

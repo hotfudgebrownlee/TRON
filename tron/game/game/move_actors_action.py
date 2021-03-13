@@ -29,9 +29,8 @@ class MoveActorsAction(Action):
         Args:
             actor (Actor): the actor to move."""
         px = actor.center_x
-        py = actor.center_y
-        vx = actor.center_x
-        vy = actor.center_y
+        vx = actor.change_x
         actor.center_x = 1 + (px + vx - 1) % (constants.MAX_X - 1)
+        py = actor.center_y
+        vy = actor.change_y
         actor.center_y = 1 + (py + vy - 1) % (constants.MAX_Y - 1)
-        """Needs wrapping logic?"""

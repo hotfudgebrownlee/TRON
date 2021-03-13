@@ -32,4 +32,3 @@ class DrawActorsAction(Action):
             for trail_bit in trail:
                 self._output_service.draw_actor(trail_bit)
                 """
-        self._output_service.flush_buffer()
