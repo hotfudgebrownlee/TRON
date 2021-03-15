@@ -31,7 +31,7 @@ def main():
 
         """
     cast["obstacles"] = []
-    while len(cast["obstacles"]) <= 4:
+    while len(cast["obstacles"]) <= constants.NUM_OBST:
         x = random.randint(0 + constants.OBST_WIDTH
                     ,constants.MAX_X - constants.OBST_WIDTH)
         y = random.randint(0 + constants.OBST_HEIGHT
