@@ -1,5 +1,15 @@
 TO DO:
 
+2021.03.15
+-How to do trail??
+-Handle obstacle overlap
+  -random x/y within certain quadrant
+-Constant movement...
+-Control AI and Player simultaneously
+  -inherit control_actors class
+  -have some variable to change input
+
+
 2021.03.13 (* is not urgent)
 main class:
 *    trail creation (next week)
