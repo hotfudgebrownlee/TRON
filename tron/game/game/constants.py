@@ -4,9 +4,9 @@ DIR = Path(__file__).resolve().parent
 DIRROOT = DIR.resolve().parent
 
 MAX_X = 800
-MAX_Y = 500
+MAX_Y = 600
 
-NUM_CYCLES = 1
+NUM_CYCLES = 2
 CYCLE_Y = MAX_Y/2
 CYCLE_MOVE_SCALE = 5
 TRAIL_LENGTH = 20
