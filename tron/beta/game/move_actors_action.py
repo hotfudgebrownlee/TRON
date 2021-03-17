@@ -18,8 +18,8 @@ class MoveActorsAction(Action):
             cast(dict): The game actors {key:tag, value:list}"""
         for trail in cast["cycles"]:
             for segment in trail:
-                if not segment.get_velocity().is_zero():
-                    self._move_actor(segment)
+                # if not segment.get_velocity().is_zero():
+                self._move_actor(segment)
     
     def _move_actor(self,actor):
         """Moves the given actor to its next position based on velocity.

@@ -31,13 +31,21 @@ class InputService:
 
         if arcade.key.LEFT in self._keys:
             x = -1
+            # direction = Point(0, 1)
+            # return direction
         elif arcade.key.RIGHT in self._keys:
             x = 1
+            # direction = Point(1, 0)
+            # return direction
         
         if arcade.key.UP in self._keys:
             y = 1
+            # direction = Point(0, -1)
+            # return direction
         elif arcade.key.DOWN in self._keys:
             y = -1
+            # direction = Point(-1, 0)
+            # return direction
 
         """Implement logic so cycle doesn't run over self w direction
         switch"""

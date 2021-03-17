@@ -24,6 +24,17 @@ class ControlActorsAction(Action):
             cast(dict): The game actors {key:tag,value:list}"""
         direction = self._input_service.get_direction().scale(constants.CYCLE_SPEED)
         trail = cast["cycles"][0]
+        
         cycle = trail[0]
         cycle.set_velocity(direction)
-
+        """
+        count = len(trail) - 1
+        for n in range(count, -1, -1):
+            segment = trail[n]
+            if n > 0:
+                leader = trail[n-1]
+                velocity = leader.get_velocity()
+                segment.set_velocity(velocity)
+            else:
+                segment.set_velocity(direction)
+        """
