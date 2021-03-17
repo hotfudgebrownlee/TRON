@@ -21,5 +21,5 @@ CYCLE_IMAGE = DIRROOT.joinpath("assets/blue_sq.png")
 TRAIL_IMAGE = DIRROOT.joinpath("assets/white_sq.png")
 OBSTACLE_IMAGE = DIRROOT.joinpath("assets/red_sq.png")
 
-CYCLE_IMG_SCALE = 32
+CYCLE_IMG_SCALE = 64
 TRAIL_IMG_SCALE = 3

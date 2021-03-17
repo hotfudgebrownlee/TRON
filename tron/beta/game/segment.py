@@ -2,10 +2,8 @@ from game import constants
 from game.actor import Actor
 from game.point import Point
 import arcade
-class Cycle(Actor):
-    """A light cycle, which moves around the screen trying not to
-    die. The responsibility of the Cycle is to move and not run
-    into any obstacles, other cycles, or its own trail.
+class Segment(Actor):
+    """A segment of the trail that follows the light cycle.
 
     Stereotype:
         Structurer, Information Holder"""
@@ -13,7 +11,7 @@ class Cycle(Actor):
         """The class constructor.
 
         Args:
-            self(Cycle): An instance of Cycle."""
+            self(Segment): An instance of Segment."""
         super().__init__(image)
         self.center_x = position.get_x()
         self.center_y = position.get_y()

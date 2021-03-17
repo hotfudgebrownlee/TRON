@@ -25,8 +25,9 @@ class DrawActorsAction(Action):
         self._output_service.clear_screen()
         for obstacle in cast["obstacles"]:
             self._output_service.draw_actor(obstacle)
-        for cycle in cast["cycles"]:
-            self._output_service.draw_actor(cycle)
+        for trail in cast["cycles"]:
+            for segment in trail:
+                self._output_service.draw_actor(segment)
             """
         for trail in cast["trails"]:
             for trail_bit in trail:

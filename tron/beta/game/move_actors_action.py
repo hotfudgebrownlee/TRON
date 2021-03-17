@@ -16,10 +16,10 @@ class MoveActorsAction(Action):
 
         Args:
             cast(dict): The game actors {key:tag, value:list}"""
-        for group in cast.values():
-            for actor in group:
-                if not actor.get_velocity().is_zero():
-                    self._move_actor(actor)
+        for trail in cast["cycles"]:
+            for segment in trail:
+                if not segment.get_velocity().is_zero():
+                    self._move_actor(segment)
     
     def _move_actor(self,actor):
         """Moves the given actor to its next position based on velocity.
@@ -28,9 +28,7 @@ class MoveActorsAction(Action):
         
         Args:
             actor (Actor): the actor to move."""
-        px = actor.center_x
-        vx = actor.change_x
-        actor.center_x = 1 + (px + vx - 1) % (constants.MAX_X - 1)
-        py = actor.center_y
-        vy = actor.change_y
-        actor.center_y = 1 + (py + vy - 1) % (constants.MAX_Y - 1)
+        x = 1 + (actor.center_x + actor.change_x - 1) % (constants.MAX_X - 1)
+        y = 1 + (actor.center_y + actor.change_y - 1) % (constants.MAX_Y - 1)
+        position = Point(x,y)
+        actor.set_position(position)

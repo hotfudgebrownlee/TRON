@@ -22,8 +22,8 @@ class ControlActorsAction(Action):
 
         Args:
             cast(dict): The game actors {key:tag,value:list}"""
-        direction = self._input_service.get_direction().scale(constants.CYCLE_MOVE_SCALE)
-        cycle = cast["cycles"][0]
-        cycle.change_x = direction.get_x()
-        cycle.change_y = direction.get_y()
+        direction = self._input_service.get_direction().scale(constants.CYCLE_SPEED)
+        trail = cast["cycles"][0]
+        cycle = trail[0]
+        cycle.set_velocity(direction)
 

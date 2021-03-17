@@ -11,7 +11,7 @@ from game.output_service import OutputService
 
 from game.cycle import Cycle
 from game.obstacle import Obstacle
-# from game.trail import Trail
+from game.segment import Segment
 
 from game.director import Director
 import arcade
@@ -23,28 +23,40 @@ def main():
 
     cycle_x = 0
     for _ in range(constants.NUM_CYCLES):
+        trail = []
         cycle_x += round(constants.MAX_X/(constants.NUM_CYCLES + 1))
-        cycle = Cycle(cycle_x, constants.CYCLE_Y, constants.CYCLE_IMAGE)
-        cast["cycles"].append(cycle)
-        """
-        TRAIL LOGIC
+        position = Point(cycle_x, constants.CYCLE_Y)
+        velocity = Point(0,constants.CYCLE_SPEED)
+        cycle = Cycle(position,velocity,constants.CYCLE_IMAGE)
+        trail.append(cycle)
+        for j in range(1,constants.TRAIL_LENGTH + 1):
+            if j == 1:
+                k = constants.CYCLE_IMG_SCALE
+            else:
+                k = constants.TRAIL_IMG_SCALE
+            position = Point(cycle_x,constants.CYCLE_Y-(j*k))
+            velocity = cycle.get_velocity()
+            segment = Segment(position,velocity,constants.TRAIL_IMAGE)
+            trail.append(segment)
+        cast["cycles"].append(trail)
 
-        """
-    cast["obstacles"] = []
-    while len(cast["obstacles"]) <= constants.NUM_OBST:
+    obstacles = []
+    while len(obstacles) <= constants.NUM_OBST:
         x = random.randint(0 + constants.OBST_WIDTH
                     ,constants.MAX_X - constants.OBST_WIDTH)
         y = random.randint(0 + constants.OBST_HEIGHT
                     ,constants.MAX_Y - constants.OBST_HEIGHT)
         obstacle = Obstacle(x, y)
-        for cycle in cast["cycles"]:
+        for trail in cast["cycles"]:
+            cycle = trail[0]
             if not obstacle.collides_with_sprite(cycle):
-                if cast["obstacles"]:
-                    for other in cast["obstacles"]:
+                if obstacles:
+                    for other in obstacles:
                         if not obstacle.collides_with_sprite(other):
-                            cast["obstacles"].append(obstacle)
+                            obstacles.append(obstacle)
                 else:
-                    cast["obstacles"].append(obstacle)
+                    obstacles.append(obstacle)
+    cast["obstacles"] = obstacles
     
     script = {}
     input_service = InputService()
