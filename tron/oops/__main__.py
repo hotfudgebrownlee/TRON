@@ -30,7 +30,11 @@ def main():
         cycle = Cycle(position,velocity,constants.CYCLE_IMAGE)
         trail.append(cycle)
         for j in range(1,constants.TRAIL_LENGTH + 1):
-            position = Point(cycle_x,constants.CYCLE_Y-(j*constants.TRAIL_IMG_SCALE))
+            if j == 1:
+                k = constants.CYCLE_IMG_SCALE
+            else:
+                k = constants.TRAIL_IMG_SCALE
+            position = Point(cycle_x,constants.CYCLE_Y-(j*k))
             velocity = cycle.get_velocity()
             segment = Segment(position,velocity,constants.TRAIL_IMAGE)
             trail.append(segment)

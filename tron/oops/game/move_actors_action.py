@@ -17,19 +17,8 @@ class MoveActorsAction(Action):
         Args:
             cast(dict): The game actors {key:tag, value:list}"""
         for trail in cast["cycles"]:
-            # for segment in trail:
-            #     if not segment.get_velocity().is_zero():
-            #         self._move_actor(segment)
-            count = len(trail) - 1
-            for n in range(count, -1, -1):
-                segment = trail[n]
-                if n > 0:
-                    leader = trail[n - 1]
-                    velocity = leader.get_velocity()
-                    segment.set_velocity(velocity)
-                else:
-                    direction = segment.get_velocity()
-                    segment.set_velocity(direction)
+            for segment in trail:
+                # if not segment.get_velocity().is_zero():
                 self._move_actor(segment)
     
     def _move_actor(self,actor):
