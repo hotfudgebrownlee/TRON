@@ -1,5 +1,12 @@
 TO DO:
 
+2021.03.18
+-Apply AI logic for random cycle movement
+-handle trail collision and other cycle collision
+-graphics and sounds
+
+***************************ARCHIVED************************
+
 2021.03.15
 -How to do trail??
 -Handle obstacle overlap
@@ -20,8 +27,6 @@ handle collisions:
 *    self collision (next week w trail)
 control ai:
 *    better AI (next week)
-
-***************************ARCHIVED************************
 
 2021.03.12 (* is not urgent)
 main class:
