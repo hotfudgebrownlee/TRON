@@ -37,21 +37,34 @@ def main():
         cast["cycles"].append(trail)
 
     obstacles = []
-    while len(obstacles) <= constants.NUM_OBST:
-        x = random.randint(0 + constants.OBST_WIDTH
-                    ,constants.MAX_X - constants.OBST_WIDTH)
-        y = random.randint(0 + constants.OBST_HEIGHT
-                    ,constants.MAX_Y - constants.OBST_HEIGHT)
+    for i in range(constants.NUM_OBST):
+        if i % 4 == 0:
+            x1 = 0
+            x2 = constants.MAX_X / 2
+            y1 = constants.MAX_Y / 2
+            y2 = constants.MAX_Y
+        elif i % 4 == 1:
+            x1 = constants.MAX_X / 2
+            x2 = constants.MAX_X
+            y1 = constants.MAX_Y / 2
+            y2 = constants.MAX_Y
+        elif i % 4 == 2:
+            x1 = constants.MAX_X / 2
+            x2 = constants.MAX_X
+            y1 = 0
+            y2 = constants.MAX_Y / 2
+        elif i % 4 == 3:
+            x1 = 0
+            x2 = constants.MAX_X / 2
+            y1 = 0
+            y2 = constants.MAX_Y / 2
+        x = random.randint(x1 + constants.OBST_WIDTH, x2 - constants.OBST_WIDTH)
+        y = random.randint(y1 + constants.OBST_HEIGHT, y2 - constants.OBST_HEIGHT)
         obstacle = Obstacle(x, y)
         for trail in cast["cycles"]:
             cycle = trail[0]
             if not obstacle.collides_with_sprite(cycle):
-                if obstacles:
-                    for other in obstacles:
-                        if not obstacle.collides_with_sprite(other):
-                            obstacles.append(obstacle)
-                else:
-                    obstacles.append(obstacle)
+                obstacles.append(obstacle)
     cast["obstacles"] = obstacles
     
     script = {}
