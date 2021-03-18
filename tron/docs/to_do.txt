@@ -3,6 +3,7 @@ TO DO:
 2021.03.18
 -Apply AI logic for random cycle movement
 -handle trail collision and other cycle collision
+-trail following sprite, not overlapping
 -graphics and sounds
 
 ***************************ARCHIVED************************
