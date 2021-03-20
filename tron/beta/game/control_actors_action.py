@@ -1,5 +1,7 @@
 from game import constants
 from game.action import Action
+from game.point import Point
+import random
 
 class ControlActorsAction(Action):
     """Code template for controlling actors. Translates user input
@@ -22,19 +24,22 @@ class ControlActorsAction(Action):
 
         Args:
             cast(dict): The game actors {key:tag,value:list}"""
-        direction = self._input_service.get_direction().scale(constants.CYCLE_SPEED)
-        trail = cast["cycles"][0]
         
-        cycle = trail[0]
-        cycle.set_velocity(direction)
-        """
-        count = len(trail) - 1
-        for n in range(count, -1, -1):
-            segment = trail[n]
-            if n > 0:
-                leader = trail[n-1]
-                velocity = leader.get_velocity()
-                segment.set_velocity(velocity)
-            else:
-                segment.set_velocity(direction)
-        """
+        player1 = cast["cycles"][0][0]
+        direction = self._input_service.get_direction().scale(constants.CYCLE_SPEED)
+        player1.set_velocity(direction)
+
+        player2 = cast["cycles"][1][0]
+        change = random.randint(0,20)
+        if change == 0:
+            newdir = Point(constants.CYCLE_SPEED,0)
+        elif change == 1:
+            newdir = Point(0,constants.CYCLE_SPEED)
+        elif change == 2:
+            newdir = Point(-constants.CYCLE_SPEED,0)
+        elif change == 3:
+            newdir = Point(0,-constants.CYCLE_SPEED)
+        else:
+            newdir = player2.get_velocity()
+        player2.set_velocity(newdir)
+    
