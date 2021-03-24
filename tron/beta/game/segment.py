@@ -7,7 +7,7 @@ class Segment(Actor):
 
     Stereotype:
         Structurer, Information Holder"""
-    def __init__(self,position,velocity,image):
+    def __init__(self,position,image):
         """The class constructor.
 
         Args:
@@ -15,5 +15,3 @@ class Segment(Actor):
         super().__init__(image)
         self.center_x = position.get_x()
         self.center_y = position.get_y()
-        self.change_x = velocity.get_x()
-        self.change_y = velocity.get_y()

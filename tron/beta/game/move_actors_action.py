@@ -1,6 +1,7 @@
 from game import constants
 from game.action import Action
 from game.point import Point
+from game.segment import Segment
 
 class MoveActorsAction(Action):
     """Code template for moving actors. The responsibility of this class
@@ -17,20 +18,14 @@ class MoveActorsAction(Action):
         Args:
             cast(dict): The game actors {key:tag, value:list}"""
         for trail in cast["cycles"]:
-            # for segment in trail:
-            #     if not segment.get_velocity().is_zero():
-            #         self._move_actor(segment)
-            count = len(trail) - 1
-            for n in range(count, -1, -1):
-                segment = trail[n]
-                if n > 0:
-                    leader = trail[n - 1]
-                    velocity = leader.get_velocity()
-                    segment.set_velocity(velocity)
-                else:
-                    direction = segment.get_velocity()
-                    segment.set_velocity(direction)
-                self._move_actor(segment)
+            cycle = trail[0]
+            
+            self._move_actor(cycle)
+            offset = cycle.get_velocity().reverse()
+            img = constants.TRAIL_IMAGE
+            position = cycle.get_position().add(offset)
+            segment = Segment(position,img)
+            trail[1].append(segment)
     
     def _move_actor(self,actor):
         """Moves the given actor to its next position based on velocity.

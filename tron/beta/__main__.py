@@ -29,13 +29,11 @@ def main():
         velocity = Point(0,constants.CYCLE_SPEED)
         cycle = Cycle(position,velocity,constants.CYCLE_IMAGE)
         trail.append(cycle)
-        for j in range(1,constants.TRAIL_LENGTH + 1):
-            position = Point(cycle_x,constants.CYCLE_Y-(j*constants.TRAIL_IMG_SCALE))
-            velocity = cycle.get_velocity()
-            segment = Segment(position,velocity,constants.TRAIL_IMAGE)
-            trail.append(segment)
+        light_trail = arcade.SpriteList()
+        trail.append(light_trail)
         cast["cycles"].append(trail)
 
+    """
     obstacles = []
     for i in range(constants.NUM_OBST):
         if i % 4 == 0:
@@ -66,7 +64,8 @@ def main():
             if not obstacle.collides_with_sprite(cycle):
                 obstacles.append(obstacle)
     cast["obstacles"] = obstacles
-    
+    """
+
     script = {}
     input_service = InputService()
     output_service = OutputService()

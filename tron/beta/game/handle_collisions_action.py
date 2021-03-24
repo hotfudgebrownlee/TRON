@@ -17,7 +17,8 @@ class HandleCollisionsAction(Action):
             cast (dict): The game actors {key: tag, value: list}.
         """
         for trail in cast["cycles"]:
-            self._handle_obst_collision(trail[0],cast["obstacles"])
+            pass
+            # self._handle_obst_collision(trail[0],cast["obstacles"])
             # for other in cast["cycles"]:
             #     self._handle_self_collision(trail, other)
             # self._handle_self_collision(trail)
