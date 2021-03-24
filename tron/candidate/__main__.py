@@ -30,7 +30,8 @@ def main():
         cast["cycles"].append(cycle)
 
     # Create a list for the light trails.
-    cast["trails"] = arcade.SpriteList()
+    trails = arcade.SpriteList()
+    cast["trails"] = trails
     """
     obstacles = []
     for i in range(constants.NUM_OBST):
