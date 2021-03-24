@@ -17,15 +17,13 @@ class MoveActorsAction(Action):
 
         Args:
             cast(dict): The game actors {key:tag, value:list}"""
-        for trail in cast["cycles"]:
-            cycle = trail[0]
-            
+        for cycle in cast["cycles"]:
             self._move_actor(cycle)
             offset = cycle.get_velocity().reverse()
             img = constants.TRAIL_IMAGE
             position = cycle.get_position().add(offset)
             segment = Segment(position,img)
-            trail[1].append(segment)
+            cast["trails"].append(segment)
     
     def _move_actor(self,actor):
         """Moves the given actor to its next position based on velocity.
