@@ -26,8 +26,14 @@ class ControlActorsAction(Action):
             cast(dict): The game actors {key:tag,value:list}"""
         
         player1 = cast["cycles"][0][0]
+        velocity = player1.get_velocity()
         direction = self._input_service.get_direction().scale(constants.CYCLE_SPEED)
+        if self._input_service._keys == []:
+        # if direction == Point(0,0):
+            direction = velocity        
         player1.set_velocity(direction)
+
+        
 
         player2 = cast["cycles"][1][0]
         change = random.randint(0,20)

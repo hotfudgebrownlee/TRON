@@ -49,6 +49,5 @@ class InputService:
 
         """Implement logic so cycle doesn't run over self w direction
         switch"""
-
         direction = Point(x,y)
         return direction
