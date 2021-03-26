@@ -30,13 +30,14 @@ class ControlActorsAction(Action):
         direction = self._input_service.get_direction().scale(constants.CYCLE_SPEED)
         if self._input_service._keys == []:
         # if direction == Point(0,0):
-            direction = velocity        
-        player1.set_velocity(direction)
+            direction = velocity   
+        if not player1.get_velocity().reverse().equals(direction):
+            player1.set_velocity(direction)
 
         
 
         player2 = cast["cycles"][1][0]
-        change = random.randint(0,10)
+        change = random.randint(0,5)
         if change == 0:
             newdir = Point(constants.CYCLE_SPEED,0)
             # player2.turn_right()
