@@ -36,10 +36,12 @@ class ControlActorsAction(Action):
         
 
         player2 = cast["cycles"][1][0]
-        change = random.randint(0,20)
+        change = random.randint(0,10)
         if change == 0:
             newdir = Point(constants.CYCLE_SPEED,0)
+            # player2.turn_right()
         elif change == 1:
+            # player2.turn_left()
             newdir = Point(0,constants.CYCLE_SPEED)
         elif change == 2:
             newdir = Point(-constants.CYCLE_SPEED,0)
@@ -47,5 +49,7 @@ class ControlActorsAction(Action):
             newdir = Point(0,-constants.CYCLE_SPEED)
         else:
             newdir = player2.get_velocity()
-        player2.set_velocity(newdir)
+        
+        if not player2.get_velocity().reverse().equals(newdir):
+            player2.set_velocity(newdir)
     

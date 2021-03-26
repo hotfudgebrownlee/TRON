@@ -23,12 +23,16 @@ def main():
 
     cycle_x = 0
 
-    for _ in range(constants.NUM_CYCLES):
+    for i in range(constants.NUM_CYCLES):
         trail = []
         cycle_x += round(constants.MAX_X/(constants.NUM_CYCLES + 1))
         position = Point(cycle_x, constants.CYCLE_Y)
         velocity = Point(0,constants.CYCLE_SPEED)
-        cycle = Cycle(position,velocity,constants.CYCLE_IMAGE)
+        if i == 0:
+            img = constants.CYCLE_IMAGE
+        else:
+            img = constants.AI_IMAGE
+        cycle = Cycle(position,velocity,img)
         trail.append(cycle)
         light_trail = arcade.SpriteList()
         trail.append(light_trail)
