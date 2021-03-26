@@ -22,6 +22,21 @@ def main():
     cast["cycles"] = []
 
     cycle_x = 0
+
+    for _ in range(constants.NUM_CYCLES):
+        trail = []
+        cycle_x += round(constants.MAX_X/(constants.NUM_CYCLES + 1))
+        position = Point(cycle_x, constants.CYCLE_Y)
+        velocity = Point(0,constants.CYCLE_SPEED)
+        cycle = Cycle(position,velocity,constants.CYCLE_IMAGE)
+        trail.append(cycle)
+        light_trail = arcade.SpriteList()
+        trail.append(light_trail)
+        cast["cycles"].append(trail)
+
+    cast["obstacles"] = arcade.SpriteList()
+
+    """
     for _ in range(constants.NUM_CYCLES):
         cycle_x += round(constants.MAX_X/(constants.NUM_CYCLES + 1))
         position = Point(cycle_x, constants.CYCLE_Y)
@@ -32,7 +47,7 @@ def main():
     # Create a list for the light trails.
     trails = arcade.SpriteList()
     cast["trails"] = trails
-    """
+    
     obstacles = []
     for i in range(constants.NUM_OBST):
         if i % 4 == 0:

@@ -29,5 +29,5 @@ class DrawActorsAction(Action):
         #     for actor in group:
         #         self._output_service.draw_actor(actor)
         for cycle in cast["cycles"]:
-            self._output_service.draw_actor(cycle)
-        self._output_service.draw_actor(cast["trails"])
+            self._output_service.draw_actor(cycle[0])
+            self._output_service.draw_actor(cycle[1])

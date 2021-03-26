@@ -16,11 +16,21 @@ class HandleCollisionsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        for trail in cast["cycles"]:
-            pass
+        for player in cast["cycles"]:
+            trail = player[1]
+            count = len(trail)-1
+            if count > 25:
+                for i in range(count-24):
+                    segment = trail[i]
+                    if not segment._can_kill:
+                        segment.set_kill(True)
+                        cast["obstacles"].append(segment)
+            cycle = player[0]
+            if cycle.collides_with_list(cast["obstacles"]):
+                sys.exit()
+
             # self._handle_obst_collision(trail[0],cast["obstacles"])
-            # for other in cast["cycles"]:
-            #     self._handle_self_collision(trail, other)
+            
             # self._handle_self_collision(trail)
 
     
