@@ -42,51 +42,7 @@ def main():
 
     
         cast["obstacles"].append(cycle)
-
-    """
-    for _ in range(constants.NUM_CYCLES):
-        cycle_x += round(constants.MAX_X/(constants.NUM_CYCLES + 1))
-        position = Point(cycle_x, constants.CYCLE_Y)
-        velocity = Point(0,constants.CYCLE_SPEED)
-        cycle = Cycle(position,velocity,constants.CYCLE_IMAGE)
-        cast["cycles"].append(cycle)
-
-    # Create a list for the light trails.
-    trails = arcade.SpriteList()
-    cast["trails"] = trails
     
-    obstacles = []
-    for i in range(constants.NUM_OBST):
-        if i % 4 == 0:
-            x1 = 0
-            x2 = constants.MAX_X / 2
-            y1 = constants.MAX_Y / 2
-            y2 = constants.MAX_Y
-        elif i % 4 == 1:
-            x1 = constants.MAX_X / 2
-            x2 = constants.MAX_X
-            y1 = constants.MAX_Y / 2
-            y2 = constants.MAX_Y
-        elif i % 4 == 2:
-            x1 = constants.MAX_X / 2
-            x2 = constants.MAX_X
-            y1 = 0
-            y2 = constants.MAX_Y / 2
-        elif i % 4 == 3:
-            x1 = 0
-            x2 = constants.MAX_X / 2
-            y1 = 0
-            y2 = constants.MAX_Y / 2
-        x = random.randint(x1 + constants.OBST_WIDTH, x2 - constants.OBST_WIDTH)
-        y = random.randint(y1 + constants.OBST_HEIGHT, y2 - constants.OBST_HEIGHT)
-        obstacle = Obstacle(x, y)
-        for trail in cast["cycles"]:
-            cycle = trail[0]
-            if not obstacle.collides_with_sprite(cycle):
-                obstacles.append(obstacle)
-    cast["obstacles"] = obstacles
-    """
-
     script = {}
     input_service = InputService()
     output_service = OutputService()

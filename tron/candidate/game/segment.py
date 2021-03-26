@@ -15,11 +15,3 @@ class Segment(Actor):
         super().__init__(image)
         self.center_x = position.get_x()
         self.center_y = position.get_y()
-        self._can_kill = False
-
-    def update_animation(self, image):
-        """Updates the image."""
-        self.image = image
-
-    def set_kill(self,kill):
-        self._can_kill = kill

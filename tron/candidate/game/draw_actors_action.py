@@ -23,11 +23,9 @@ class DrawActorsAction(Action):
         Args:
             cast(dict): the game actors {key:tag, value:list}"""
         self._output_service.clear_screen()
-        # for obstacle in cast["obstacles"]:
-        #     self._output_service.draw_actor(obstacle)
-        # for group in cast.values():
-        #     for actor in group:
-        #         self._output_service.draw_actor(actor)
+        
         for cycle in cast["cycles"]:
             self._output_service.draw_actor(cycle[0])
             self._output_service.draw_actor(cycle[1])
+
+        self._output_service.draw_actor(cast["obstacles"])

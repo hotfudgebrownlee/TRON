@@ -20,15 +20,9 @@ class HandleCollisionsAction(Action):
             trail = player[1]
             count = len(trail)-1
             if count > 8:
-                for i in range(count-7):
-                    segment = trail[i]
-                    if not segment._can_kill:
-                        segment.set_kill(True)
-                        cast["obstacles"].append(segment)
+                segment = trail[0]
+                cast["obstacles"].append(segment)
+                trail.remove(segment)
             cycle = player[0]
             if cycle.collides_with_list(cast["obstacles"]):
                 sys.exit()
-
-            # self._handle_obst_collision(trail[0],cast["obstacles"])
-            
-            # self._handle_self_collision(trail)
