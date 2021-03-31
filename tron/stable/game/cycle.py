@@ -20,6 +20,8 @@ class Cycle(Actor):
         self.change_x = velocity.get_x()
         self.change_y = velocity.get_y()
         self.trail = None
+        self.img_list = {}
+        self.store_img(image,'fwd')
 
     def set_trail(self,img):
         """Set a trail image"""
@@ -28,7 +30,10 @@ class Cycle(Actor):
     def get_trail(self):
         return self.trail
 
-    def set_img(self,img):
-        
+    def store_img(self,image,key):
+        self.img_list[key] = image
+
+    def get_img(self, key):
+        return self.img_list[key]
 
     

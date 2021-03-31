@@ -33,16 +33,24 @@ def main():
         if i == 0:
             img = constants.CYCLE_IMAGE
             trail_img = constants.CYCLE_TRAIL
+            bck = constants.CYCLE_DOWN
+            lft = constants.CYCLE_LEFT
+            rgt = constants.CYCLE_RIGHT
         else:
             img = constants.AI_IMAGE
             trail_img = constants.AI_TRAIL
+            bck = constants.AI_DOWN
+            lft = constants.AI_LEFT
+            rgt = constants.AI_RIGHT
         cycle = Cycle(position,velocity,img)
         cycle.set_trail(trail_img)
+        cycle.store_img(bck,'bck')
+        cycle.store_img(lft,'lft')
+        cycle.store_img(rgt,'rgt')
         trail.append(cycle)
         light_trail = arcade.SpriteList()
         trail.append(light_trail)
         cast["cycles"].append(trail)
-
     
         cast["obstacles"].append(cycle)
     
