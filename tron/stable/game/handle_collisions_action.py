@@ -19,7 +19,7 @@ class HandleCollisionsAction(Action):
         for player in cast["cycles"]:
             trail = player[1]
             count = len(trail)-1
-            if count > 8:
+            if count > 15:
                 segment = trail[0]
                 cast["obstacles"].append(segment)
                 trail.remove(segment)

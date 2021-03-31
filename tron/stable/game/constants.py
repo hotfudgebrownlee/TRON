@@ -10,6 +10,7 @@ NUM_CYCLES = 2
 CYCLE_Y = MAX_Y/2
 CYCLE_SPEED = 2.5
 
-CYCLE_IMAGE = DIRROOT.joinpath("assets/blue_sq.png")
-TRAIL_IMAGE = DIRROOT.joinpath("assets/white_sq.png")
-AI_IMAGE = DIRROOT.joinpath("assets/red_sq.png")
+CYCLE_IMAGE = DIRROOT.joinpath("assets/player_bike.png")
+CYCLE_TRAIL = DIRROOT.joinpath("assets/player_trail.png")
+AI_TRAIL = DIRROOT.joinpath("assets/ai_trail.png")
+AI_IMAGE = DIRROOT.joinpath("assets/ai_bike.png")

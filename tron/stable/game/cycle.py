@@ -19,3 +19,16 @@ class Cycle(Actor):
         self.center_y = position.get_y()
         self.change_x = velocity.get_x()
         self.change_y = velocity.get_y()
+        self.trail = None
+
+    def set_trail(self,img):
+        """Set a trail image"""
+        self.trail = img
+
+    def get_trail(self):
+        return self.trail
+
+    def set_img(self,img):
+        
+
+    

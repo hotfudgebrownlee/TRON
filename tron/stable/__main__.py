@@ -32,9 +32,12 @@ def main():
         velocity = Point(0,constants.CYCLE_SPEED)
         if i == 0:
             img = constants.CYCLE_IMAGE
+            trail_img = constants.CYCLE_TRAIL
         else:
             img = constants.AI_IMAGE
+            trail_img = constants.AI_TRAIL
         cycle = Cycle(position,velocity,img)
+        cycle.set_trail(trail_img)
         trail.append(cycle)
         light_trail = arcade.SpriteList()
         trail.append(light_trail)
