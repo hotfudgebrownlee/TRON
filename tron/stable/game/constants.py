@@ -10,6 +10,8 @@ NUM_CYCLES = 2
 CYCLE_Y = MAX_Y/2
 CYCLE_SPEED = 2.5
 
+GAMEOVER = False
+
 CYCLE_IMAGE = DIRROOT.joinpath("assets/player_bike.png")
 CYCLE_TRAIL = DIRROOT.joinpath("assets/player_trail.png")
 CYCLE_DOWN = DIRROOT.joinpath("assets/player_down.png")

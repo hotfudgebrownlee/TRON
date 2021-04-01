@@ -10,9 +10,10 @@ from game.input_service import InputService
 from game.output_service import OutputService
 
 from game.cycle import Cycle
-from game.obstacle import Obstacle
 from game.segment import Segment
 
+from game.instructions import Instructions
+from game.gameover import GameOver
 from game.director import Director
 import arcade
 
@@ -67,8 +68,9 @@ def main():
     script["update"] = [move_actors_action, handles_collisions_action]
     script["output"] = [draw_actors_action]
 
-    director = Director(cast,script,input_service)
-    director.setup()
+    window = arcade.Window(constants.MAX_X, constants.MAX_Y, "TRON")
+    start_view = Instructions(cast,script,input_service)
+    window.show_view(start_view)
     arcade.run()
 
 if __name__ == "__main__":
