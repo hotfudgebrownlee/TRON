@@ -1,9 +1,9 @@
 import arcade
 from game import constants
-from game.director import Director
+# from game.director import Director
 class GameOver(arcade.View):
     """View to show who won"""
-    def __init__(self,cast,script,input_service,winner):
+    def __init__(self,cast,script,input_service):
         """Class constructor. Variables should be passed to Director
         only if player chooses to play again."""
         # super().__init__(constants.MAX_X, constants.MAX_Y, "TRON")
@@ -11,7 +11,7 @@ class GameOver(arcade.View):
         self._cast = cast
         self._script = script
         self._input = input_service
-        self._winner = winner
+        # self._winner = winner
 
     def on_show(self):
         """This will run when we switch to this view."""
@@ -23,16 +23,16 @@ class GameOver(arcade.View):
         arcade.draw_text("GAME OVER", constants.MAX_X / 2,
                          constants.MAX_Y * 0.75, arcade.color.WHITE,
                          font_size=50, anchor_x="center")
-        arcade.draw_text(f"{self._winner} won!", constants.MAX_X / 2,
-                         constants.MAX_Y / 2, arcade.color.WHITE,
-                         font_size=20, anchor_x="center")
+        # arcade.draw_text(f"{self._winner} won!", constants.MAX_X / 2,
+        #                  constants.MAX_Y / 2, arcade.color.WHITE,
+        #                  font_size=20, anchor_x="center")
         arcade.draw_text(f"Click to play again.\nExit the window to exit.",
                          constants.MAX_X / 2, constants.MAX_Y * 0.25,
                          arcade.color.WHITE, font_size=20, anchor_x="center")
 
 
-    def on_mouse_press(self, _x, _y, _button, _modifiers):
-        """If mouse is pressed, start the game."""
-        director = Director(self._cast, self._script, self._input)
-        director.setup()
-        self.window.show_view(director)
+    # def on_mouse_press(self, _x, _y, _button, _modifiers):
+    #     """If mouse is pressed, start the game."""
+    #     director = Director(self._cast, self._script, self._input)
+    #     director.setup()
+    #     self.window.show_view(director)

@@ -1,5 +1,6 @@
 import arcade
 from game import constants
+from game.gameover import GameOver
 
 class Director(arcade.View):
     def __init__(self,cast,script,input_service):
@@ -31,7 +32,12 @@ class Director(arcade.View):
         self._cue_action("input")
 
     def on_update(self, delta_time):
-        self._cue_action("update")
+        if constants.GAMEOVER == False:
+            self._cue_action("update")
+        else:
+            window = arcade.Window(constants.MAX_X, constants.MAX_Y, "TRON")
+            end_view = GameOver(self._cast,self._script,self._input)
+            window.show_view(end_view)
 
     def on_draw(self):
         self._cue_action("output")

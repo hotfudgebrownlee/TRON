@@ -12,8 +12,8 @@ from game.output_service import OutputService
 from game.cycle import Cycle
 from game.segment import Segment
 
-from game.instructions import Instructions
 from game.gameover import GameOver
+from game.instructions import Instructions
 from game.director import Director
 import arcade
 

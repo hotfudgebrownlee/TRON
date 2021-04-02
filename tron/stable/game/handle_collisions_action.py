@@ -25,4 +25,4 @@ class HandleCollisionsAction(Action):
                 trail.remove(segment)
             cycle = player[0]
             if cycle.collides_with_list(cast["obstacles"]):
-                sys.exit()
+                constants.GAMEOVER = True
