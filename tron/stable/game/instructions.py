@@ -22,7 +22,7 @@ class Instructions(arcade.View):
         arcade.draw_text("Welcome to TRON", constants.MAX_X / 2,
                          constants.MAX_Y * 0.66, arcade.color.WHITE,
                          font_size=50, anchor_x="center")
-        arcade.draw_text("Click to advance", constants.MAX_X / 2,
+        arcade.draw_text("You are the yellow cycle.\nClick to advance", constants.MAX_X / 2,
                          constants.MAX_Y / 3, arcade.color.WHITE,
                          font_size=20, anchor_x="center")
 

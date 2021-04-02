@@ -35,9 +35,9 @@ class Director(arcade.View):
         if constants.GAMEOVER == False:
             self._cue_action("update")
         else:
-            window = arcade.Window(constants.MAX_X, constants.MAX_Y, "TRON")
-            end_view = GameOver(self._cast,self._script,self._input)
-            window.show_view(end_view)
+            # window = arcade.Window(constants.MAX_X, constants.MAX_Y, "TRON")
+            end_view = GameOver(self._cast,self._script,self._input, constants.WINNER)
+            self.window.show_view(end_view)
 
     def on_draw(self):
         self._cue_action("output")

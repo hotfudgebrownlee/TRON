@@ -9,7 +9,7 @@ class Cycle(Actor):
 
     Stereotype:
         Structurer, Information Holder"""
-    def __init__(self,position,velocity,image):
+    def __init__(self,position,velocity,image,name):
         """The class constructor.
 
         Args:
@@ -21,6 +21,7 @@ class Cycle(Actor):
         self.change_y = velocity.get_y()
         self.trail = None
         self.img_list = {}
+        self._name = name
         self.store_img(image,'fwd')
 
     def set_trail(self,img):
@@ -36,4 +37,6 @@ class Cycle(Actor):
     def get_img(self, key):
         return self.img_list[key]
 
+    def get_name(self):
+        return self._name
     

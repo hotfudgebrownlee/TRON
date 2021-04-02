@@ -12,10 +12,12 @@ from game.output_service import OutputService
 from game.cycle import Cycle
 from game.segment import Segment
 
-from game.gameover import GameOver
+from game.director import GameOver
+# from game.gameover import GameOver
 from game.instructions import Instructions
 from game.director import Director
 import arcade
+import sys
 
 def main():
     cast = {}
@@ -37,13 +39,15 @@ def main():
             bck = constants.CYCLE_DOWN
             lft = constants.CYCLE_LEFT
             rgt = constants.CYCLE_RIGHT
+            opponent = "Blue Cycle"
         else:
             img = constants.AI_IMAGE
             trail_img = constants.AI_TRAIL
             bck = constants.AI_DOWN
             lft = constants.AI_LEFT
             rgt = constants.AI_RIGHT
-        cycle = Cycle(position,velocity,img)
+            opponent = "Yellow Cycle"
+        cycle = Cycle(position,velocity,img,opponent)
         cycle.set_trail(trail_img)
         cycle.store_img(bck,'bck')
         cycle.store_img(lft,'lft')

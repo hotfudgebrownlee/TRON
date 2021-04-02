@@ -11,6 +11,7 @@ CYCLE_Y = MAX_Y/2
 CYCLE_SPEED = 2.5
 
 GAMEOVER = False
+WINNER = ''
 
 CYCLE_IMAGE = DIRROOT.joinpath("assets/player_bike.png")
 CYCLE_TRAIL = DIRROOT.joinpath("assets/player_trail.png")
