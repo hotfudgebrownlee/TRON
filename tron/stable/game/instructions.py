@@ -20,10 +20,16 @@ class Instructions(arcade.View):
         """This draws the view"""
         arcade.start_render()
         arcade.draw_text("Welcome to TRON", constants.MAX_X / 2,
-                         constants.MAX_Y * 0.66, arcade.color.WHITE,
+                         constants.MAX_Y * 0.8, arcade.color.WHITE,
                          font_size=50, anchor_x="center")
-        arcade.draw_text("You are the yellow cycle.\nClick to advance", constants.MAX_X / 2,
-                         constants.MAX_Y / 3, arcade.color.WHITE,
+        arcade.draw_text("You are the yellow cycle.", constants.MAX_X / 2,
+                         constants.MAX_Y * 0.6, arcade.color.WHITE,
+                         font_size=20, anchor_x="center")
+        arcade.draw_text("Use the arrow keys to move.", constants.MAX_X / 2,
+                         constants.MAX_Y * 0.4, arcade.color.WHITE,
+                         font_size=20, anchor_x="center")
+        arcade.draw_text("Click to advance.", constants.MAX_X / 2,
+                         constants.MAX_Y * 0.2, arcade.color.WHITE,
                          font_size=20, anchor_x="center")
 
     def on_mouse_press(self, _x, _y, _button, _modifiers):
